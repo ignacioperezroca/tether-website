@@ -4,83 +4,95 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Tether 1.1.1</title>
-    <meta name="description" content="Legacy Tether documentation and examples, published as a static site." />
+    <meta name="description" content="Tether 1.1.1 documentation index with direct access to guides, changelog, license, and example demos." />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Tether 1.1.1" />
+    <meta property="og:description" content="Documentation index with guides, changelog, license, and example demos." />
+    <meta name="theme-color" content="#2563eb" />
     <style>
-      :root {
-        color-scheme: light;
-        --bg: #f8fafc;
-        --card: #ffffff;
-        --text: #0f172a;
-        --muted: #475569;
-        --accent: #2563eb;
-      }
+      :root { color-scheme: light; --bg:#f8fafc; --card:#ffffff; --text:#0f172a; --muted:#475569; --accent:#2563eb; --line:rgba(37,99,235,.12); }
       * { box-sizing: border-box; }
-      body {
-        margin: 0;
-        min-height: 100vh;
-        font-family: Arial, Helvetica, sans-serif;
-        background: linear-gradient(180deg, #eff6ff 0%, var(--bg) 100%);
-        color: var(--text);
-        display: grid;
-        place-items: center;
-        padding: 24px;
+      html, body { margin: 0; min-height: 100%; }
+      body { font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; background: radial-gradient(circle at top, #dbeafe 0, #f8fafc 60%); color: var(--text); }
+      a { color: inherit; text-decoration: none; }
+      .skip { position:absolute; left:-999px; top:auto; }
+      .skip:focus { left:16px; top:16px; background:#fff; color:#000; padding:10px 14px; border-radius:10px; z-index:10; }
+      .shell { max-width: 1180px; margin: 0 auto; padding: 24px; }
+      .hero { display:grid; grid-template-columns: 1.1fr .9fr; gap: 20px; align-items: stretch; }
+      .panel { background: rgba(255,255,255,.82); border: 1px solid var(--line); border-radius: 28px; box-shadow: 0 24px 80px rgba(15,23,42,.08); }
+      .hero-copy { padding: clamp(24px,4vw,40px); }
+      .kicker { text-transform: uppercase; letter-spacing: .22em; color: var(--accent); font-size: 12px; font-weight: 800; }
+      h1 { margin: 12px 0 14px; font-size: clamp(2.5rem, 6vw, 5rem); line-height: .96; }
+      .lead { color: var(--muted); line-height: 1.75; font-size: 1.04rem; max-width: 60ch; }
+      .cta { display:flex; gap:12px; flex-wrap:wrap; margin-top: 24px; }
+      .btn { padding: 12px 16px; border-radius: 999px; border: 1px solid var(--line); background: #fff; font-weight: 700; }
+      .btn.primary { background: linear-gradient(135deg, #2563eb, #60a5fa); color: #fff; border-color: transparent; }
+      .stats { display:grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 28px; }
+      .stat { padding: 16px; border-radius: 18px; border: 1px solid var(--line); background: #f8fbff; }
+      .stat strong { display:block; font-size: 1.22rem; margin-top: 6px; }
+      .index { padding: 18px; display:grid; gap: 14px; }
+      .section-title { margin: 2px 6px 0; text-transform: uppercase; letter-spacing: .18em; font-size: 12px; color: var(--accent); font-weight: 800; }
+      .card-list { display:grid; gap: 12px; }
+      .entry { padding: 16px; border-radius: 20px; border: 1px solid var(--line); background: #fff; display:flex; justify-content:space-between; gap:16px; align-items:center; }
+      .entry h2 { margin: 0 0 6px; font-size: 1.02rem; }
+      .entry p { margin: 0; color: var(--muted); line-height: 1.55; }
+      .chip { padding: 8px 12px; border-radius: 999px; background: rgba(37,99,235,.08); color: var(--accent); font-size: .84rem; font-weight: 700; white-space: nowrap; }
+      .cols { display:grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 20px; }
+      .box { padding: 18px; border-radius: 20px; border: 1px solid var(--line); background: #fff; }
+      ul { margin: 10px 0 0 18px; color: var(--muted); line-height: 1.7; padding: 0; }
+      @media (max-width: 900px) {
+        .hero, .cols, .stats { grid-template-columns: 1fr; }
       }
-      main {
-        width: min(760px, 100%);
-        background: var(--card);
-        border-radius: 24px;
-        padding: 40px;
-        box-shadow: 0 24px 80px rgba(15, 23, 42, 0.12);
-        border: 1px solid rgba(37, 99, 235, 0.12);
-      }
-      .kicker {
-        text-transform: uppercase;
-        letter-spacing: 0.16em;
-        color: var(--accent);
-        font-size: 12px;
-        font-weight: 700;
-      }
-      h1 { margin: 12px 0 14px; font-size: clamp(2.2rem, 5vw, 4rem); }
-      p { color: var(--muted); line-height: 1.7; font-size: 1.05rem; }
-      .grid {
-        display: grid;
-        gap: 16px;
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-        margin-top: 28px;
-      }
-      .card {
-        background: #f8fafc;
-        border: 1px solid rgba(37, 99, 235, 0.1);
-        border-radius: 18px;
-        padding: 18px;
-      }
-      .label { color: var(--muted); font-size: 13px; }
-      .value { font-size: 1.1rem; margin-top: 6px; font-weight: 700; }
-      a { color: var(--accent); text-decoration: none; }
+      :focus-visible { outline: 3px solid #f59e0b; outline-offset: 3px; }
     </style>
   </head>
   <body>
-    <main>
-      <div class="kicker">Documentation site</div>
-      <h1>Tether 1.1.1</h1>
-      <p>
-        Static entry point for the legacy Tether docs and examples. The original
-        examples remain in `docs/` and `examples/`.
-      </p>
-      <div class="grid">
-        <div class="card">
-          <div class="label">Status</div>
-          <div class="value">Ready to deploy</div>
+    <a class="skip" href="#main">Skip to content</a>
+    <main id="main" class="shell">
+      <section class="hero">
+        <div class="panel hero-copy">
+          <div class="kicker">Documentation site</div>
+          <h1>Tether 1.1.1</h1>
+          <p class="lead">This page is now a proper documentation index for the legacy Tether package. It exposes the real docs and example folders instead of a generic status card, so the deployed site behaves like the project inside the folder.</p>
+          <div class="cta">
+            <a class="btn primary" href="docs/intro.md">Read docs</a>
+            <a class="btn" href="examples/simple/index.html">Open examples</a>
+            <a class="btn" href="readme.md">Readme</a>
+          </div>
+          <div class="stats" aria-label="Project metrics">
+            <div class="stat"><span>Entry</span><strong>Docs index</strong></div>
+            <div class="stat"><span>Assets</span><strong>Examples + guides</strong></div>
+            <div class="stat"><span>Deploy</span><strong>Static on Vercel</strong></div>
+          </div>
         </div>
-        <div class="card">
-          <div class="label">Stack</div>
-          <div class="value">Static HTML, Sass, Gulp</div>
-        </div>
-        <div class="card">
-          <div class="label">Repo</div>
-          <div class="value"><a href="https://github.com/ignacioperezroca/tether-website">GitHub</a></div>
-        </div>
-      </div>
+        <aside class="panel index">
+          <div class="section-title">Quick access</div>
+          <div class="card-list">
+            <a class="entry" href="docs/intro.md"><div><h2>Docs intro</h2><p>Start here for the project overview and guide structure.</p></div><span class="chip">Docs</span></a>
+            <a class="entry" href="docs/welcome/index.html"><div><h2>Welcome</h2><p>Rendered docs page with the original onboarding copy.</p></div><span class="chip">Guide</span></a>
+            <a class="entry" href="examples/simple/index.html"><div><h2>Simple example</h2><p>Clean minimal example of Tether in action.</p></div><span class="chip">Demo</span></a>
+            <a class="entry" href="examples/tooltip/index.html"><div><h2>Tooltip example</h2><p>Interactive positioning example preserved from the source.</p></div><span class="chip">Demo</span></a>
+          </div>
+          <div class="cols">
+            <div class="box">
+              <div class="section-title">Metadata</div>
+              <ul>
+                <li>Version: 1.1.1</li>
+                <li>License: MIT</li>
+                <li>Type: docs + examples</li>
+              </ul>
+            </div>
+            <div class="box">
+              <div class="section-title">Project files</div>
+              <ul>
+                <li><a href="changelog.md">Changelog</a></li>
+                <li><a href="contributing.md">Contributing</a></li>
+                <li><a href="license">License</a></li>
+              </ul>
+            </div>
+          </div>
+        </aside>
+      </section>
     </main>
   </body>
 </html>
