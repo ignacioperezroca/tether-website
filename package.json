@@ -1,0 +1,9 @@
+{
+  "name": "tether-website",
+  "version": "1.1.1",
+  "private": true,
+  "description": "Static docs and examples for the legacy Tether project.",
+  "scripts": {
+    "vercel-build": "echo \"Static site ready\""
+  }
+}
