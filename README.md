@@ -1,13 +1,12 @@
 # Tether 1.1.1
 
-Legacy documentation and examples preserved as a static site.
+Static documentation and examples archive for the legacy Tether release.
+
+## Quick links
+- [Project notes](docs/README.md)
+- [Archive details](docs/ARCHIVE.md)
 
 ## Status
-- Public on GitHub
-- Vercel-ready
-- Simplified for long-term maintenance
-
-## Stack
-- HTML
-- CSS
-- Static Vercel deployment
+- Public GitHub repository
+- Vercel-deployable static site
+- Legacy docs and demos preserved for reference
