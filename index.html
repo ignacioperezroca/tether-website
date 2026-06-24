@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tether 1.1.1</title>
+    <meta name="description" content="Legacy Tether documentation and examples, published as a static site." />
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f8fafc;
+        --card: #ffffff;
+        --text: #0f172a;
+        --muted: #475569;
+        --accent: #2563eb;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: Arial, Helvetica, sans-serif;
+        background: linear-gradient(180deg, #eff6ff 0%, var(--bg) 100%);
+        color: var(--text);
+        display: grid;
+        place-items: center;
+        padding: 24px;
+      }
+      main {
+        width: min(760px, 100%);
+        background: var(--card);
+        border-radius: 24px;
+        padding: 40px;
+        box-shadow: 0 24px 80px rgba(15, 23, 42, 0.12);
+        border: 1px solid rgba(37, 99, 235, 0.12);
+      }
+      .kicker {
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        color: var(--accent);
+        font-size: 12px;
+        font-weight: 700;
+      }
+      h1 { margin: 12px 0 14px; font-size: clamp(2.2rem, 5vw, 4rem); }
+      p { color: var(--muted); line-height: 1.7; font-size: 1.05rem; }
+      .grid {
+        display: grid;
+        gap: 16px;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        margin-top: 28px;
+      }
+      .card {
+        background: #f8fafc;
+        border: 1px solid rgba(37, 99, 235, 0.1);
+        border-radius: 18px;
+        padding: 18px;
+      }
+      .label { color: var(--muted); font-size: 13px; }
+      .value { font-size: 1.1rem; margin-top: 6px; font-weight: 700; }
+      a { color: var(--accent); text-decoration: none; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="kicker">Documentation site</div>
+      <h1>Tether 1.1.1</h1>
+      <p>
+        Static entry point for the legacy Tether docs and examples. The original
+        examples remain in `docs/` and `examples/`.
+      </p>
+      <div class="grid">
+        <div class="card">
+          <div class="label">Status</div>
+          <div class="value">Ready to deploy</div>
+        </div>
+        <div class="card">
+          <div class="label">Stack</div>
+          <div class="value">Static HTML, Sass, Gulp</div>
+        </div>
+        <div class="card">
+          <div class="label">Repo</div>
+          <div class="value"><a href="https://github.com/ignacioperezroca/tether-website">GitHub</a></div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
